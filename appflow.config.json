@@ -1,8 +1,8 @@
 {
   "apps": [
     {
-      "id": "app_overseasjobs_2026",
-      "name": "OverseasJobs Mobile App",
+      "appId": "app_overseasjobs_2026",
+      "name": "Zyan Job",
       "platform": "capacitor"
     }
   ],
