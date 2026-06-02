@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "id": "app_overseasjobs_2026",
+      "name": "OverseasJobs Mobile App",
+      "platform": "capacitor"
+    }
+  ],
+  "builds": {
+    "web": {
+      "buildCommand": "npm run build",
+      "webDir": "dist"
+    }
+  }
+}
