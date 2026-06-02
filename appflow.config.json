@@ -4,11 +4,6 @@
       "appId": "app_overseasjobs_2026",
       "name": "Zyan Job",
       "platform": "capacitor"
-    },
-    {
-      "appId": "e40a4cad",
-      "name": "Zyan Job",
-      "platform": "capacitor"
     }
   ],
   "builds": {

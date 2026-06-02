@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Zyan Job</string>
+    <string name="title_activity_main">Zyan Job</string>
+    <string name="package_name">com.zyanjob.app</string>
+    <string name="custom_url_scheme">com.zyanjob.app</string>
+</resources>
