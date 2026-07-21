@@ -295,6 +295,7 @@ export default function App() {
   const [otpRequired, setOtpRequired] = useState(false);
   const [otp, setOtp] = useState('');
   const [phone, setPhone] = useState('');
+  const [resendTimer, setResendTimer] = useState(0);
   const [searchKeyword, setSearchKeyword] = useState('');
   const [searchLocation, setSearchLocation] = useState('');
   
@@ -967,6 +968,16 @@ export default function App() {
     fetchCountriesMetadata();
   }, []);
 
+  React.useEffect(() => {
+    let interval: any;
+    if (otpRequired && resendTimer > 0) {
+      interval = setInterval(() => {
+        setResendTimer((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [otpRequired, resendTimer]);
+
   const filteredJobs = jobs.filter(job => {
     // 1. Keyword search filter
     if (searchKeyword.trim() !== '') {
@@ -1143,6 +1154,7 @@ export default function App() {
         if (res.ok && data.success) {
           if (data.otpRequired) {
             setOtpRequired(true);
+            setResendTimer(30);
             setSuccessMessage("A verification OTP has been sent to your email.");
           } else {
             localStorage.setItem('token', data.accessToken);
@@ -1159,11 +1171,7 @@ export default function App() {
           setErrorMessage(data.message || "Registration failed.");
         }
       } catch (err) {
-        setErrorMessage("Could not connect to the server. Running in fallback onboarding mode.");
-        setTimeout(() => {
-          setScreen('onboarding');
-          setOnboardingStep(1);
-        }, 1500);
+        setErrorMessage("Could not connect to the server. Please check your internet connection and try again.");
       }
     } else {
       try {
@@ -1182,6 +1190,7 @@ export default function App() {
         if (res.ok && data.success) {
           if (data.otpRequired) {
             setOtpRequired(true);
+            setResendTimer(30);
             setSuccessMessage("A verification OTP has been sent to your email.");
           } else {
             localStorage.setItem('token', data.accessToken);
@@ -1200,13 +1209,40 @@ export default function App() {
           setErrorMessage(data.message || "Invalid credentials.");
         }
       } catch (err) {
-        setErrorMessage("Could not connect to server. Logging in using demo credentials.");
-        setTimeout(() => {
-          setIsLoggedIn(true);
-          setScreen('app');
-          setActiveTab('home');
-        }, 1500);
+        setErrorMessage("Could not connect to the server. Please check your internet connection and try again.");
       }
+    }
+  };
+
+  const handleResendOtp = async () => {
+    if (resendTimer > 0) return;
+    setErrorMessage(null);
+    setSuccessMessage(null);
+    try {
+      const path = authMode === 'login' ? '/api/v1/auth/login' : '/api/v1/auth/register';
+      const body: any = { email, password };
+      if (authMode === 'register') {
+        const names = name.trim().split(' ');
+        body.first_name = names[0] || 'Employee';
+        body.last_name = names.slice(1).join(' ') || 'User';
+        body.role = 'seeker';
+        body.phone = phone;
+      }
+      
+      const res = await fetch(API_BASE_URL + path, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setResendTimer(30);
+        setSuccessMessage("A fresh verification OTP has been sent to your email.");
+      } else {
+        setErrorMessage(data.message || "Failed to resend OTP.");
+      }
+    } catch (err) {
+      setErrorMessage("Could not connect to the server to resend OTP.");
     }
   };
 
@@ -1449,6 +1485,32 @@ export default function App() {
                           color: '#10b981'
                         }}
                       />
+                      
+                      {/* Timer & Resend OTP Actions */}
+                      <div style={{ marginTop: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        {resendTimer > 0 ? (
+                          <span style={{ fontSize: '11px', color: '#94a3b8' }}>
+                            Resend code in <strong style={{ color: '#10b981' }}>{resendTimer}s</strong>
+                          </span>
+                        ) : (
+                          <button 
+                            type="button" 
+                            onClick={handleResendOtp}
+                            style={{
+                              background: 'none',
+                              border: 'none',
+                              color: '#10b981',
+                              fontSize: '11px',
+                              fontWeight: 700,
+                              textDecoration: 'underline',
+                              cursor: 'pointer',
+                              padding: 0
+                            }}
+                          >
+                            Resend OTP Code
+                          </button>
+                        )}
+                      </div>
                     </div>
                   )}
 
