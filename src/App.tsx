@@ -1450,23 +1450,7 @@ export default function App() {
                     </div>
                   )}
 
-                  {/* Autofill Demo Chip Helper */}
-                  {!otpRequired && (
-                    <div className="autofill-chip-container">
-                      <button 
-                        type="button" 
-                        onClick={() => { 
-                          setEmail('candidate@jobzyan.com'); 
-                          setPassword('Zyan123!'); 
-                          setName('Gaurav Yadav'); 
-                        }}
-                        className="autofill-demo-chip"
-                        style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-                      >
-                        <Icons.Bolt size={12} color="#f59e0b" /> Quick Autofill Demo Credentials
-                      </button>
-                    </div>
-                  )}
+
 
                   <button type="submit" className="indeed-primary-btn-submit">
                     {otpRequired ? (authMode === 'login' ? 'Verify & Access Account' : 'Verify & Create Profile') : (authMode === 'login' ? 'Sign In' : 'Register Profile')}
