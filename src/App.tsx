@@ -1326,13 +1326,7 @@ export default function App() {
                   Apply to thousands of verified international jobs with visa support and relocations.
                 </p>
 
-                <button type="button" onClick={handleAuthSubmit} className="google-signin-btn">
-                  <Icons.Google size={16} /> Sign in with Google
-                </button>
 
-                <div className="auth-divider">
-                  <span className="divider-text">or</span>
-                </div>
 
                 {errorMessage && (
                   <div className="indeed-error-banner animate-slide-up" style={{
