@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { PushNotifications } from '@capacitor/push-notifications';
 import './App.css';
 
 const API_BASE_URL = (import.meta.env.VITE_API_URL as string) || 'https://backend-zyanjob.onrender.com';
@@ -956,16 +955,7 @@ export default function App() {
   };
 
   React.useEffect(() => {
-    // Request Native Permissions (Push Notifications & Network state) on Mobile Devices
-    try {
-      if (typeof window !== 'undefined' && (window as any).Capacitor?.isNativePlatform()) {
-        PushNotifications.requestPermissions().then(result => {
-          if (result.receive === 'granted') {
-            PushNotifications.register();
-          }
-        }).catch(() => {});
-      }
-    } catch (e) {}
+
 
     const token = localStorage.getItem('token');
     if (token) {
