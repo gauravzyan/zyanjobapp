@@ -46,9 +46,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!-- Automatic OTP & SMS Verification Permissions -->
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
+
 
     <!-- Storage & Camera Permissions (Profile Picture & Resume Upload) -->
     <uses-permission android:name="android.permission.CAMERA" />
