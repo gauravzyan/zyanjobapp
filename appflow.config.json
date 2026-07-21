@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "appId": "e40a4cad",
+      "name": "Zyan Overseas",
+      "platform": "capacitor"
+    }
+  ],
+  "builds": {
+    "web": {
+      "buildCommand": "npm run build",
+      "webDir": "dist"
+    }
+  }
+}

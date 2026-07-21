@@ -1,0 +1,1590 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --indeed-blue: #2557a7;
+  --indeed-blue-glow: rgba(37, 87, 167, 0.15);
+  --indeed-bg: rgba(255, 255, 255, 0.85);
+  --indeed-gray-light: #f3f4f6;
+  --indeed-text-dark: #1f2937;
+  --indeed-text-muted: #4b5563;
+  --indeed-border: rgba(209, 213, 219, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --neon-emerald: #10b981;
+  --neon-cyan: #06b6d4;
+  --premium-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.06);
+}
+
+.mobile-app-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at 10% 20%, rgba(4, 11, 28, 1) 0%, rgba(12, 24, 57, 1) 90%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow: auto;
+  position: relative;
+}
+
+
+/* Ambient glow highlights behind the phone for dynamic UX contrast */
+.mobile-app-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(37, 87, 167, 0.2) 0%, rgba(0,0,0,0) 70%);
+  top: 10%;
+  left: 20%;
+  z-index: 1;
+  pointer-events: none;
+}
+.mobile-app-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(0,0,0,0) 70%);
+  bottom: 10%;
+  right: 20%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Realistic Ultra-Premium Flagship Phone Casing with side buttons & glare highlights */
+.mobile-phone-casing {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 0px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+
+/* Simulated Side Buttons */
+.mobile-phone-casing::after {
+  content: none;
+  display: none;
+}
+
+
+/* Screen Casing Premium Dynamic Island / Notch */
+.mobile-phone-casing::before {
+  content: none;
+  display: none;
+}
+
+
+.mobile-screen-content {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 90% 20%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+  color: #0f172a;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header Bar */
+.indeed-header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.indeed-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -1px;
+}
+
+.header-right-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.header-circle-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.bell-icon-dot {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  border: 2px solid #ffffff;
+}
+
+.indeed-main-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 80px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(37, 99, 235, 0.15) transparent;
+}
+
+/* Floating 2-Row Search Block Card */
+.indeed-search-block {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  margin: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px -8px rgba(37, 99, 235, 0.06);
+  overflow: hidden;
+}
+
+.search-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  gap: 12px;
+  background: #ffffff;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.search-icon-svg {
+  font-size: 16px;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+}
+
+.search-right-icon {
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.search-clean-input {
+  background: none;
+  border: none;
+  color: #0f172a;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.search-clean-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Horizontal Filter Pills Container */
+.filter-pills-row {
+  display: flex;
+  gap: 10px;
+  padding: 4px 20px 16px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filter-pills-row::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-pill-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  padding: 9px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.filter-pill-btn:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.filter-pill-btn.active-filter {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+/* Jobs Feed Section Header */
+.jobs-section-header {
+  padding: 12px 20px 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.section-title-bold {
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-subtitle-light {
+  font-size: 13px;
+  color: #64748b;
+  margin: 4px 0 0 0;
+  font-weight: 500;
+}
+
+.see-all-btn {
+  background: #f1f5f9;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.2s ease;
+}
+.see-all-btn:hover {
+  background: #e2e8f0;
+}
+
+/* Job Cards Feed */
+.job-cards-feed {
+  padding: 0 20px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.indeed-glass-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+  text-align: left;
+  overflow: hidden;
+}
+
+.indeed-glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.08);
+}
+
+.urgently-badge {
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  color: #059669;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-header-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.company-logo-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 20px;
+  color: #ffffff;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.card-title-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.job-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.company-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.company-name-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.rating-star-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #eab308;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.location-text {
+  font-size: 13px;
+  color: #64748b;
+  margin: 2px 0 0 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bookmark-dislike-col {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-circle-btn {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.action-circle-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* Speed Bolt Badge */
+.responds-speed-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #ecfdf5;
+  color: #059669;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 10px;
+  align-self: flex-start;
+}
+
+/* Color-Coded Benefit Pills */
+.perks-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.success-perk-pill {
+  background: #ecfdf5;
+  color: #059669;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.visa-perk-pill {
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.relocation-perk-pill {
+  background: #faf5ff;
+  color: #9333ea;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.salary-bottom-row {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.salary-amount-text {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Premium micro-ripples easily apply button */
+.easily-apply-footer {
+  margin-top: 8px;
+  border-top: 1px dashed var(--indeed-border);
+  padding-top: 8px;
+}
+
+.easily-apply-btn {
+  background: none;
+  border: none;
+  color: #000000;
+  font-weight: 800;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+.easily-apply-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.send-arrow-icon {
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+.easily-apply-btn:hover .send-arrow-icon {
+  transform: translateX(2px);
+}
+
+/* Beautiful Curve wave layout for Profiles */
+.profile-banner-wave {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  height: 120px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.wave-curve-graphic {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  background: #ffffff;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+}
+
+.avatar-uploader-circle {
+  width: 80px;
+  height: 80px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  margin-bottom: -40px;
+  border: 4px solid #ffffff;
+}
+
+.profile-emoji-avatar {
+  font-size: 38px;
+}
+
+.camera-overlay-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #000000;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.profile-details-center {
+  margin-top: 48px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.profile-display-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.profile-sub-email, .profile-sub-phone, .profile-sub-location {
+  font-size: 11px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+.employers-find-badge {
+  background: #000000;
+  border: 1px solid #000000;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+.employers-find-badge:hover {
+  background: #1e293b;
+  border-color: #1e293b;
+}
+
+.profile-mini-tabs-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #e2e8f0;
+  margin: 20px 16px 0 16px;
+}
+
+.mini-tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 0;
+  font-weight: 700;
+  font-size: 12px;
+  color: #64748b;
+  cursor: pointer;
+  position: relative;
+}
+
+.mini-tab-btn.active-mini-tab {
+  color: #000000;
+}
+
+.mini-tab-btn.active-mini-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: #000000;
+}
+
+.profile-sub-content {
+  padding: 16px;
+}
+
+.indeed-resume-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.card-inner-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.card-inner-subtitle {
+  font-size: 11px;
+  color: #64748b;
+  margin: 2px 0 8px 0;
+  font-weight: 700;
+}
+
+.summary-text-box {
+  font-size: 11px;
+  color: #0f172a;
+  line-height: 1.5;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid #000000;
+}
+
+/* Bottom Sheet Overlay */
+.bottom-sheet-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bottom-sheet-modal {
+  width: 100%;
+  background: #ffffff;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  padding: 16px 20px 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+
+.bottom-sheet-drag-handle {
+  width: 40px;
+  height: 5px;
+  background: #ccd0d5;
+  border-radius: 10px;
+  align-self: center;
+}
+
+.bottom-sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom-sheet-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--indeed-text-dark);
+}
+
+.close-sheet-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--indeed-text-muted);
+  cursor: pointer;
+}
+
+.bottom-sheet-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkbox-row-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkbox-clean-input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkbox-label-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--indeed-text-dark);
+}
+
+.bottom-sheet-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-sheet-update {
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn-sheet-update:hover {
+  background: #1e293b;
+}
+
+.btn-sheet-clear {
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #e2e8f0;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-sheet-clear:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* Seeker Status tracking card */
+.tracker-cards-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tracker-status-card {
+  background: #ffffff;
+  border: 1px solid #e4e2e0;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.applied-pill-badge {
+  background: #eae8fd;
+  color: #5850ec;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.dot-menu-more {
+  color: var(--indeed-text-muted);
+  font-size: 11px;
+}
+
+.date-tracker-sub {
+  font-size: 11px;
+  color: var(--indeed-text-muted);
+  margin: 0;
+}
+
+.update-status-action-btn {
+  background: #ffffff;
+  border: 1px solid var(--indeed-border);
+  color: var(--indeed-text-dark);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.indeed-bottom-tabs-nav {
+  height: 68px;
+  background: #ffffff;
+  border-top: 1px solid #f1f5f9;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.bottom-nav-item {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: #64748b;
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.bottom-nav-item.active-nav-tab {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.bottom-nav-item.active-nav-tab .tab-icon-box {
+  background: #eff6ff;
+  padding: 6px 18px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-nav-item.active-nav-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 3px;
+  background-color: #2563eb;
+  border-radius: 10px;
+}
+
+.nav-icon-badge {
+  font-size: 20px;
+}
+
+.nav-lbl-text {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.indeed-logo-center {
+  font-size: 32px;
+  font-weight: 900;
+  color: #000000;
+  letter-spacing: -1.5px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.flex-col-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Premium Indeed Login UI Redesign */
+.auth-container-premium {
+  padding: 24px 20px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 10;
+  margin-top: 0px; /* notch spacing removed */
+}
+
+
+.indeed-logo-header {
+  font-size: 26px;
+  font-weight: 900;
+  color: #000000;
+  letter-spacing: -1.5px;
+  margin-bottom: 24px;
+}
+
+.mobile-auth-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #2d2d2d;
+  line-height: 1.3;
+  margin: 0 0 6px 0;
+}
+
+.mobile-auth-subtitle {
+  font-size: 12px;
+  color: var(--indeed-text-muted);
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+/* Google Sign-in Chip */
+.google-signin-btn {
+  background: #ffffff;
+  border: 1px solid var(--indeed-border);
+  color: #2d2d2d;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background 0.15s ease;
+}
+
+.google-signin-btn:active {
+  background: #f8f9fa;
+}
+
+.google-icon-svg {
+  font-size: 15px;
+}
+
+/* Divider */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 16px 0;
+  color: var(--indeed-text-muted);
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e4e2e0;
+}
+
+.auth-divider:not(:empty)::before {
+  margin-right: .5em;
+}
+
+.auth-divider:not(:empty)::after {
+  margin-left: .5em;
+}
+
+.divider-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8c8c8c;
+}
+
+/* Input Fields Premium */
+.mobile-form-premium {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mob-input-wrap-premium {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-label-premium {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2d2d2d;
+  text-align: left;
+}
+
+.mob-input-field-premium {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--indeed-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: #2d2d2d;
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+  font-weight: 500;
+  transition: border-color 0.15s ease;
+}
+
+.mob-input-field-premium::placeholder {
+  color: #ababab;
+}
+
+.mob-input-field-premium:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 1px #000000;
+}
+
+/* Autofill Chip */
+.autofill-chip-container {
+  margin: 4px 0;
+}
+
+.autofill-demo-chip {
+  background: #eae8fd;
+  border: 1px dashed #5850ec;
+  color: #5850ec;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  transition: background 0.15s ease;
+}
+
+.autofill-demo-chip:active {
+  background: #d8d6fb;
+}
+
+/* Submit Action Button */
+.indeed-primary-btn-submit {
+  width: 100%;
+  background-color: var(--indeed-blue);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.indeed-primary-btn-submit:active {
+  background-color: #1a4282;
+}
+
+/* Disclaimer text */
+.auth-terms-disclaimer {
+  font-size: 10px;
+  color: var(--indeed-text-muted);
+  line-height: 1.5;
+  margin-top: 16px;
+  text-align: left;
+}
+
+.blue-link {
+  color: var(--indeed-blue);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.blue-link:hover {
+  text-decoration: underline;
+}
+
+/* Toggle link */
+.auth-toggle-premium {
+  text-align: center;
+  font-size: 13px;
+  color: #2d2d2d;
+  margin-top: 24px;
+  font-weight: 500;
+}
+
+.auth-toggle-btn-premium {
+  background: none;
+  border: none;
+  color: var(--indeed-blue);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Onboarding Setup Wizard Styles */
+.onboarding-view {
+  background-color: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.onboarding-container {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  margin-top: 15px; /* notch */
+}
+
+.onboarding-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.onboarding-step-indicator {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--indeed-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.onboarding-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #f1f3f5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, var(--indeed-blue) 0%, #06b6d4 100%);
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+.onboarding-step-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+}
+
+.onboarding-step-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #2d2d2d;
+  margin: 0;
+}
+
+.onboarding-step-subtitle {
+  font-size: 12px;
+  color: var(--indeed-text-muted);
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+}
+
+.onboarding-textarea {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--indeed-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: #2d2d2d;
+  font-size: 13px;
+  outline: none;
+  font-family: inherit;
+  resize: none;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.onboarding-textarea:focus {
+  border-color: var(--indeed-blue);
+  box-shadow: 0 0 0 1px var(--indeed-blue);
+}
+
+.onboarding-checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.border-box-option {
+  border: 1px solid var(--indeed-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #ffffff;
+  transition: border-color 0.15s ease;
+}
+
+.border-box-option:hover {
+  border-color: var(--indeed-blue);
+}
+
+.option-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.option-text-group strong {
+  font-size: 13px;
+  color: #2d2d2d;
+}
+
+.option-text-group span {
+  font-size: 10px;
+  color: var(--indeed-text-muted);
+}
+
+/* Mock Upload Container */
+.mock-upload-wrapper {
+  border: 1px dashed var(--indeed-border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.mock-upload-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  text-align: left;
+}
+
+.mock-upload-details strong {
+  font-size: 13px;
+  color: #2d2d2d;
+}
+
+.mock-upload-details span {
+  font-size: 10px;
+  color: var(--indeed-text-muted);
+}
+
+.change-cv-btn {
+  background: #ffffff;
+  border: 1px solid var(--indeed-border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--indeed-text-muted);
+  cursor: pointer;
+}
+
+.change-cv-btn:hover {
+  border-color: var(--indeed-blue);
+  color: var(--indeed-blue);
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.gap-4 {
+  gap: 16px;
+}
+
+.prefs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.prefs-list li {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2d2d2d;
+  background: #f3f2f1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--indeed-border);
+}
+
+.resume-pill-block {
+  background: #e2f0fd;
+  border: 1px solid #b7d7f7;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.resume-pill-block strong {
+  font-size: 13px;
+  color: var(--indeed-blue);
+}
+
+.resume-pill-block span {
+  font-size: 9px;
+  color: var(--indeed-text-muted);
+}
+
+.indeed-app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* UI Advancements: Animated skeleton loaders & Tab glow pulses */
+@keyframes shimmerPulse {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 200% 100%;
+  animation: shimmerPulse 1.5s infinite linear;
+}
+
+.skeleton-job-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--premium-shadow);
+}
+
+.skeleton-text-title {
+  height: 18px;
+  width: 70%;
+  border-radius: 4px;
+}
+
+.skeleton-text-sub {
+  height: 12px;
+  width: 40%;
+  border-radius: 4px;
+}
+
+.skeleton-text-desc {
+  height: 10px;
+  width: 90%;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.skeleton-badge-wrap {
+  display: flex;
+  gap: 8px;
+}
+
+.skeleton-badge {
+  height: 20px;
+  width: 60px;
+  border-radius: 6px;
+}
+
+.skeleton-circle {
+  height: 44px;
+  width: 44px;
+  border-radius: 12px;
+}
+
+/* Bottom Nav active glow effect */
+@keyframes tabGlow {
+  0% {
+    box-shadow: 0 0 2px rgba(37, 87, 167, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(37, 87, 167, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 2px rgba(37, 87, 167, 0.2);
+  }
+}
+
+.bottom-nav-item.active-nav-tab::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 3px;
+  background-color: var(--indeed-blue);
+  border-radius: 0 0 4px 4px;
+  animation: tabGlow 2s infinite ease-in-out;
+}
+
+/* Screen display glossy reflection glare overlay */
+.screen-glare-reflection {
+  display: none;
+}
+
+
+/* Realistic Futuristic Status Bar directly below Notch */
+.futuristic-status-bar {
+  display: none;
+}
+
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.battery-icon {
+  color: #10b981;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* Ambient Blur Blobs inside Mobile Frame Background */
+.mobile-screen-content {
+  position: relative;
+}
+
+.ambient-blur-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatSoftly 6s infinite ease-in-out;
+}
+
+.blob-blue {
+  width: 150px;
+  height: 150px;
+  background: #3b82f6;
+  top: 15%;
+  left: -20px;
+}
+
+.blob-cyan {
+  width: 150px;
+  height: 150px;
+  background: #06b6d4;
+  bottom: 25%;
+  right: -20px;
+  animation-delay: 3s;
+}
+
+@keyframes floatSoftly {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+
+
