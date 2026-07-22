@@ -57,13 +57,14 @@
 /* Realistic Ultra-Premium Flagship Phone Casing with side buttons & glare highlights */
 .mobile-phone-casing {
   width: 100%;
-  max-width: 1200px;
+  max-width: 450px;
   min-height: 100vh;
   height: 100vh;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.95);
-  border: none;
-  border-radius: 0px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
   position: relative;
   overflow: hidden;
   display: flex;
