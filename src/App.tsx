@@ -1047,7 +1047,12 @@ export default function App() {
         })
       });
       const data = await res.json();
-      if (res.status === 403 || res.status === 401 || data.message === 'Invalid or expired token.') {
+      if (res.status === 403) {
+        setErrorMessage("Only candidates/job seekers can apply for jobs.");
+        setTimeout(() => setErrorMessage(null), 4000);
+        return;
+      }
+      if (res.status === 401 || data.message === 'Invalid or expired token.') {
         handleLogout();
         setErrorMessage("Your session has expired. Please sign in again.");
         setTimeout(() => setErrorMessage(null), 4000);
