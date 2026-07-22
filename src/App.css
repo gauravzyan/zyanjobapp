@@ -1082,31 +1082,32 @@
 .input-label-premium {
   font-size: 12px;
   font-weight: 700;
-  color: #2d2d2d;
+  color: #475569;
   text-align: left;
+  margin-bottom: 4px;
 }
 
 .mob-input-field-premium {
   width: 100%;
   background: #ffffff;
-  border: 1px solid var(--indeed-border);
-  border-radius: 8px;
-  padding: 12px 14px;
-  color: #2d2d2d;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #1e293b;
   font-size: 13px;
   outline: none;
   box-sizing: border-box;
   font-weight: 500;
-  transition: border-color 0.15s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .mob-input-field-premium::placeholder {
-  color: #ababab;
+  color: #94a3b8;
 }
 
 .mob-input-field-premium:focus {
-  border-color: #000000;
-  box-shadow: 0 0 0 1px #000000;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
 }
 
 /* Autofill Chip */
@@ -1136,19 +1137,31 @@
 /* Submit Action Button */
 .indeed-primary-btn-submit {
   width: 100%;
-  background-color: var(--indeed-blue);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color: #ffffff;
   border: none;
-  border-radius: 8px;
-  padding: 14px;
-  font-weight: 700;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-weight: 800;
   font-size: 14px;
   cursor: pointer;
-  transition: background 0.15s ease;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.indeed-primary-btn-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 }
 
 .indeed-primary-btn-submit:active {
-  background-color: #1a4282;
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
 }
 
 /* Disclaimer text */
